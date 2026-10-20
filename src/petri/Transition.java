@@ -7,10 +7,15 @@ public class Transition extends Noeud {
     private List<ArcEntrant> arcsEntrants;
     private List<ArcSortant> arcsSortants;
 
-    public Transition(String name) {
+    public Transition(String name,List<ArcEntrant> arcsEntrants,List<ArcSortant> arcsSortants ) {
         super(name);
-        // TODO
+        this.arcsEntrants=arcsEntrants;
+        this.arcsSortants=arcsSortants;
     }
+    public Transition(String name){
+        this(name, new ArrayList<>(), new ArrayList<>());
+    }
+
 
     public boolean estFranchissable() {
         // TODO
