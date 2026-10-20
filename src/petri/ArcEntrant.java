@@ -3,16 +3,22 @@ package petri;
 public class ArcEntrant extends Arc {
 
     public ArcEntrant(Place place, Transition transition, int poids) {
+
         super(place, transition, poids);
     }
 
     public boolean estActif() {
-        // TODO
-        return false;
+        Place p = getPlace();
+        int weight = getPoids();
+        return p.getJetons() >= weight;
     }
 
     @Override
     public void activer() {
-        // TODO
+        if (estActif()) {
+            Place p = getPlace();
+            int weight = getPoids();
+            p.retirerJetons(weight);
+        }
     }
 }
