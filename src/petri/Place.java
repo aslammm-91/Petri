@@ -6,19 +6,18 @@ public class Place extends Noeud {
 
     public Place(String name, int nbJetons) {
         super(name);
-        // TODO
+        this.nbJetons=nbJetons;
     }
 
     public int getJetons() {
-        // TODO
-        return 0;
+        return this.nbJetons;
     }
 
     public void ajouterJetons(int nb) {
-        // TODO
+        this.nbJetons+=nb ;
     }
 
     public void retirerJetons(int nb) {
-        // TODO
+        this.nbJetons+= -nb ;
     }
 }

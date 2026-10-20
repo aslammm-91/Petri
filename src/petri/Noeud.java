@@ -5,17 +5,15 @@ public abstract class Noeud {
     private String name;
 
     public Noeud(String name) {
-        // TODO
+        this.name=name ;
     }
 
     public String getName() {
-        // TODO
-        return null;
+        return this.name ;
     }
 
     @Override
     public String toString() {
-        // TODO
-        return null;
+        return "Nom :"+this.name;
     }
 }
