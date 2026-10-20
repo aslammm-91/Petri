@@ -8,12 +8,16 @@ public class ArcVideur extends ArcEntrant {
 
     @Override
     public boolean estActif() {
-        // TODO
-        return false;
+        Place p = getPlace();
+        return p.getJetons() >= 1;
     }
+
 
     @Override
     public void activer() {
-        // TODO
+        Place p = getPlace();
+        int nbJetons = p.getJetons();
+        p.retirerJetons(nbJetons);
+
     }
 }
