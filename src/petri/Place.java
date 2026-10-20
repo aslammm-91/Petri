@@ -18,6 +18,6 @@ public class Place extends Noeud {
     }
 
     public void retirerJetons(int nb) {
-        this.nbJetons+= -nb ;
+        this.nbJetons-= nb ;
     }
 }

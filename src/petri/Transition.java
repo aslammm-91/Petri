@@ -18,12 +18,21 @@ public class Transition extends Noeud {
 
 
     public boolean estFranchissable() {
-        // TODO
-        return false;
+        for (ArcEntrant arc : arcsEntrants) {
+            if (!arc.estActif()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void franchir() {
-        // TODO
+        for (ArcEntrant arc : arcsEntrants) {
+            arc.activer();
+        }
+        for (ArcSortant arc : arcsSortants){
+            arc.activer();
+        }
     }
 
     void ajouterArcEntrant(ArcEntrant a) {
