@@ -7,26 +7,25 @@ public abstract class Arc {
     private Transition transition;
 
     public Arc(Place place, Transition transition, int poids) {
-        // TODO
+        this.place = place;
+        this.transition = transition;
+        this.poids = poids;
     }
 
     public int getPoids() {
-        // TODO
-        return 0;
+        return this.poids;
     }
 
-    public void setPoids(int poids) {
-        // TODO
+    public void setPoids(int p) {
+        this.poids = p;
     }
 
     public Place getPlace() {
-        // TODO
-        return null;
+        return this.place;
     }
 
     public Transition getTransition() {
-        // TODO
-        return null;
+        return this.transition;
     }
 
     public abstract void activer();
