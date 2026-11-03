@@ -1,5 +1,5 @@
 package petri;
-
+import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +18,13 @@ public class ReseauPetri {
     }
     
     public boolean executerPas() {
-        if (getTransitionsFranchissables().isEmpty()){
+        List<Transition> transi =getTransitionsFranchissables();
+        if (transi.isEmpty()){
             return false ;
         }
-        for (Transition t : getTransitionsFranchissables()){
-            t.franchir(); 
+        int size=transi.size();
+        for (int i=0; i<size;i++){
+            choisir(transi).franchir(); 
         }
         return true;
     }
@@ -63,7 +65,9 @@ public class ReseauPetri {
     }
 
     private Transition choisir (List<Transition> l) {
-        // TODO
-        return null;
+        Random rand = new Random();
+        Transition tr= l.get(rand.nextInt(l.size()));
+        l.remove(tr);
+        return tr;
     }
 }
