@@ -24,8 +24,8 @@ public class TestTransition {
 
     @Test
     void testTransition() {
-        // TODO
-        fail("Pas encore implémenté");
+        Transition t = new Transition("T0");
+        assertEquals("T0",t.getName());
     }
 
     @Test

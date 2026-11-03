@@ -20,49 +20,48 @@ public class TestPlace {
 
     @Test
     void testPlace() {
-        // TODO
-        fail("Pas encore implémenté");
-    }
-
-    @Test
-    void testPlaceJetonsNegatifs() {
-        // TODO
-        fail("Pas encore implémenté");
+        Place p3 = new Place("P3", 3);
+        assertEquals("P3", p3.getName());
+        assertEquals(3, p3.getJetons());
     }
 
     @Test
     void testGetName() {
-        // TODO
-        fail("Pas encore implémenté");
+        assertEquals("P0", p.getName());
     }
 
     @Test
     void testToString() {
-        // TODO
-        fail("Pas encore implémenté");
+        assertTrue(p.toString().contains("P0"));
     }
 
     @Test
     void testGetJetons() {
-        // TODO
-        fail("Pas encore implémenté");
+        assertEquals(0, p.getJetons());
     }
 
     @Test
     void testAjouterJetons() {
-        // TODO
-        fail("Pas encore implémenté");
+        p.ajouterJetons(2);
+        assertEquals(2, p.getJetons());
+        p.ajouterJetons(3);
+        assertEquals(5, p.getJetons());
     }
 
     @Test
     void testRetirerJetons() {
-        // TODO
-        fail("Pas encore implémenté");
+        p.ajouterJetons(5);
+        p.retirerJetons(2);
+        assertEquals(3, p.getJetons());
+        p.retirerJetons(3);
+        assertEquals(0, p.getJetons());
     }
 
     @Test
     void testRetirerJetonsTropNombreux() {
-        // TODO
-        fail("Pas encore implémenté");
+        Place p1 = new Place("P0",5);
+        assertEquals(5,p1.getJetons());
+        p1.retirerJetons(8);
+        assertEquals(5,p1.getJetons());
     }
 }

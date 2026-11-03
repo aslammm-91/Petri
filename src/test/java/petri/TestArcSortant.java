@@ -24,13 +24,16 @@ public class TestArcSortant {
 
     @Test
     void testArcSortant() {
-        // TODO
-        fail("Pas encore implémenté");
+        assertEquals(p,a.getPlace());
+        assertEquals(t,a.getTransition());
     }
 
     @Test
     void testActiver() {
-        // TODO
-        fail("Pas encore implémenté");
+        Place p1 = new Place ("P0",5);
+        ArcSortant a1 = new ArcSortant(p1,t,3);
+        assertEquals(5,p1.getJetons());
+        a1.activer();
+        assertEquals(8,p1.getJetons());
     }
 }

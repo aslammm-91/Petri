@@ -24,42 +24,47 @@ public class TestArcEntrant {
 
     @Test
     void testArcEntrant() {
-        // TODO
-        fail("Pas encore implémenté");
-    }
+        ArcEntrant a = new ArcEntrant(p,t, 1);
+        assertEquals(t,a.getTransition());
+        assertEquals(p,a.getPlace());
+        assertEquals(1,a.getPoids());
 
-    @Test
-    void testPoidsNonPositif() {
-        // TODO
-        fail("Pas encore implémenté");
     }
 
     @Test
     void testSetPoids() {
-        // TODO
-        fail("Pas encore implémenté");
-    }
-
-    void testSetPoidsNonPositif() {
-        // TODO
-        fail("Pas encore implémenté");
+        ArcEntrant a = new ArcEntrant(p,t,0);
+        assertEquals(0,a.getPoids());
+        a.setPoids(3);
+        assertEquals(3,a.getPoids());
     }
 
     @Test
     void testEstActif() {
-        // TODO
-        fail("Pas encore implémenté");
+        Place p1 = new Place ("P0",5);
+        ArcEntrant a1 = new ArcEntrant(p1,t,3);
+        assertTrue(a1.estActif());
+        p1.retirerJetons(4);
+        assertFalse(a1.estActif());
     }
 
     @Test
     void testNonActif() {
-        // TODO
-        fail("Pas encore implémenté");
+        Place p1 = new Place ("P0",5);
+        ArcEntrant a1 = new ArcEntrant(p1,t,8);
+        assertFalse(a1.estActif());
+        p1.retirerJetons(4);
+        assertFalse(a1.estActif());
+        p1.ajouterJetons(6);
+        assertFalse(a1.estActif());
     }
 
     @Test
     void testActiver() {
-        // TODO
-        fail("Pas encore implémenté");
+        Place p1 = new Place ("P0",5);
+        ArcEntrant a1 = new ArcEntrant(p1,t,3);
+        assertEquals(5,p1.getJetons());
+        a1.activer();
+        assertEquals(2,p1.getJetons());
     }
 }
