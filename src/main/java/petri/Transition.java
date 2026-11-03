@@ -1,5 +1,6 @@
 package petri;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Transition extends Noeud {
