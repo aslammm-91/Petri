@@ -39,30 +39,30 @@ public class ReseauPetri {
     }
 
     public void ajouterPlace(Place p) {
-        // TODO
+        places.add(p);
     }
 
     public void supprimerPlace(Place p) {
-        // TODO
+        places.remove(p);
     }
 
     public void ajouterTransition(Transition t) {
-        // TODO
+        transitions.add(t);
     }
 
     public void supprimerTransition(Transition t) {
-        // TODO
+        transitions.remove(t);
     }
 
     public void ajouterArc(Arc a) {
-        // TODO
+        arcs.add(a);
     }
 
     public void supprimerArc(Arc a) {
-        // TODO
+        arcs.remove(a);
     }
 
-    private Transition choisir(List<Transition> l) {
+    private Transition choisir (List<Transition> l) {
         // TODO
         return null;
     }

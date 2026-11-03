@@ -36,11 +36,11 @@ public class Transition extends Noeud {
         }
     }
 
-    void ajouterArcEntrant(ArcEntrant a) {
-        //TODO
+    void ajouterArcentrant(ArcEntrant a) {
+        arcsEntrants.add(a);
     }
 
     void ajouterArcSortant(ArcSortant a) {
-        // TODO
+        arcsSortants.add(a);
     }
 }
