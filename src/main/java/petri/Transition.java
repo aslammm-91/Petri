@@ -37,7 +37,7 @@ public class Transition extends Noeud {
     }
 
     void ajouterArcEntrant(ArcEntrant a) {
-        // TODO
+        //TODO
     }
 
     void ajouterArcSortant(ArcSortant a) {
