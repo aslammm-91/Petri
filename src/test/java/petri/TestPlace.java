@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/** Tests de {@link Place} : nom, ajout et retrait de jetons. */
 public class TestPlace {
     private Place p;
 

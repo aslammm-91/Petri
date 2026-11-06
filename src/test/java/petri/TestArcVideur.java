@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/** Tests de {@link ArcVideur} : actif dès un jeton, vide la place. */
 public class TestArcVideur {
     private Place p;
     private Transition t;

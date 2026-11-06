@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/** Tests de {@link ArcZero} : actif seulement si la place est vide, ne retire rien. */
 public class TestArcZero {
     private Place p;
     private Transition t;

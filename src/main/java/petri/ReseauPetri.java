@@ -3,6 +3,12 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe principale : un réseau de Petri, composé de places, de transitions et d'arcs.
+ * Elle permet de construire le réseau (ajout et suppression d'éléments)
+ * et de l'exécuter pas à pas.
+ *
+ */
 public class ReseauPetri {
 
     private final List<Place> places = new ArrayList<>();
@@ -21,6 +27,11 @@ public class ReseauPetri {
         return arcs;
     }
 
+    /**
+     * Tire la transition choisie par l'utilisateur (exigence 5).
+     *
+     * @return {@code false} si la transition n'est pas franchissable ; le réseau n'est alors pas modifié
+     */
     public boolean step(Transition t) {
         if (t.isFireable()){
             t.fire();
@@ -28,7 +39,12 @@ public class ReseauPetri {
         }
         return false;
     }
-    
+
+    /**
+     * Tire une transition choisie au hasard parmi les transitions franchissables.
+     *
+     * @return {@code false} si aucune transition n'est franchissable
+     */
     public boolean step() {
     List<Transition> transi = getFireableTransitions();
     if (transi.isEmpty()) {
@@ -43,7 +59,7 @@ public class ReseauPetri {
         List<Transition> list=new ArrayList<Transition>();
         for (Transition t: transitions){
             if (t.isFireable()){
-                list.add(t);  
+                list.add(t);
             }
         }
         return list;
@@ -53,6 +69,9 @@ public class ReseauPetri {
         places.add(p);
     }
 
+    /**
+     * Supprime la place et tous les arcs qui la relient.
+     */
     public void removePlace(Place p) {
         places.remove(p);
         for (Arc a : new ArrayList<>(arcs)) {
@@ -66,6 +85,9 @@ public class ReseauPetri {
         transitions.add(t);
     }
 
+    /**
+     * Supprime la transition et tous ses arcs.
+     */
     public void removeTransition(Transition t) {
         transitions.remove(t);
         for (Arc a : new ArrayList<>(arcs)) {
@@ -75,6 +97,12 @@ public class ReseauPetri {
         }
     }
 
+    /**
+     * Ajoute l'arc au réseau et l'enregistre dans la bonne liste de sa transition.
+     *
+     * @throws IllegalArgumentException si un arc de même sens relie déjà la même place
+     *         et la même transition (exigence 3)
+     */
     public void addArc(Arc a) {
     for (Arc existing : arcs) {
         boolean memeSens = (existing instanceof ArcEntrant && a instanceof ArcEntrant)
@@ -93,6 +121,9 @@ public class ReseauPetri {
     }
 }
 
+    /**
+     * Retire l'arc du réseau et de sa transition.
+     */
     public void removeArc(Arc a) {
         arcs.remove(a);
         a.getTransition().getIncomingArcs().remove(a);

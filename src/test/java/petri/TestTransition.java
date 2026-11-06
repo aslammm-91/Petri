@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/** Tests de {@link Transition} : franchissabilité et tir, avec des arcs ajoutés directement. */
 public class TestTransition {
     private Transition t;
     private Place pIn;

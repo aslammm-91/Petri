@@ -1,5 +1,9 @@
 package petri;
 
+/**
+ * Élément nommé d'un réseau de Petri : classe mère de {@link Place} et de {@link Transition}.
+ * Le nom est fixé à la construction et ne change plus.
+ */
 public abstract class Noeud {
 
     private String name;

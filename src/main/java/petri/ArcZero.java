@@ -1,5 +1,9 @@
 package petri;
 
+/**
+ * Arc zéro (extension de l'exercice 2) : actif seulement si la place est vide,
+ * il ne retire aucun jeton. Son poids n'a pas de sens et vaut toujours 1.
+ */
 public class ArcZero extends ArcEntrant {
 
     public ArcZero(Place place, Transition transition) {

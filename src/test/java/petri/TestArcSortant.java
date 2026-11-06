@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/** Tests de {@link ArcSortant} : ajout de jetons. */
 public class TestArcSortant {
     private Place p;
     private Transition t;

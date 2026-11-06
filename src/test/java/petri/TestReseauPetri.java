@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/** Tests de {@link ReseauPetri} : construction du réseau et exécution pas à pas. */
 public class TestReseauPetri {
     private ReseauPetri rp;
     private Place pIn;
