@@ -9,13 +9,18 @@ public class Place extends Noeud {
         this.nbJetons=nbJetons;
     }
 
-    public int getJetons() {
+    public int getTokens() {
         return this.nbJetons;
     }
 
-    public void ajouterJetons(int nb) {
+    public void addTokens(int nb) {
         this.nbJetons+=nb ;
     }
 
-    public void retirerJetons(int nb) {this.nbJetons-= nb ;}
+    // Exigence 7 : si la place n'a pas assez de jetons, rien n'est retiré
+    public void removeTokens(int nb) {
+        if (nb <= this.nbJetons) {
+            this.nbJetons -= nb;
+        }
+    }
 }

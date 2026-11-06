@@ -7,18 +7,18 @@ public class ArcEntrant extends Arc {
         super(place, transition, poids);
     }
 
-    public boolean estActif() {
+    public boolean isActive() {
         Place p = getPlace();
-        int weight = getPoids();
-        return p.getJetons() >= weight;
+        int weight = getWeight();
+        return p.getTokens() >= weight;
     }
 
     @Override
-    public void activer() {
-        if (estActif()) {
+    public void activate() {
+        if (isActive()) {
             Place p = getPlace();
-            int weight = getPoids();
-            p.retirerJetons(weight);
+            int weight = getWeight();
+            p.removeTokens(weight);
         }
     }
 }

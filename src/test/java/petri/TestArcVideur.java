@@ -26,24 +26,26 @@ public class TestArcVideur {
     void testArcVideur() {
         assertEquals(p,a.getPlace());
         assertEquals(t,a.getTransition());
+        assertEquals(1, a.getWeight());
     }
 
     @Test
-    void testEstActif() {
-        // TODO
-        fail("Pas encore implémenté");
+    void testIsActive() {
+        assertTrue(a.isActive());
+        Place p1 = new Place("P1", 1);
+        assertTrue(new ArcVideur(p1, t).isActive());
     }
 
     @Test
-    void testNonActifPlaceVide() {
-        // TODO
-        fail("Pas encore implémenté");
+    void testIsNotActiveEmptyPlace() {
+        Place p1 = new Place("P1", 0);
+        assertFalse(new ArcVideur(p1, t).isActive());
     }
 
-
     @Test
-    void testActiver() {
-        // TODO
-        fail("Pas encore implémenté");
+    void testActivate() {
+        a.activate();
+        assertEquals(0, p.getTokens());
+        assertFalse(a.isActive());
     }
 }

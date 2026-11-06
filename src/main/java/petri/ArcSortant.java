@@ -8,9 +8,9 @@ public class ArcSortant extends Arc {
     }
 
     @Override
-    public void activer() {
+    public void activate() {
         Place p = getPlace();
-        int weight = getPoids();
-        p.ajouterJetons(weight);
+        int weight = getWeight();
+        p.addTokens(weight);
     }
 }

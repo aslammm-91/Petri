@@ -7,17 +7,17 @@ public class ArcVideur extends ArcEntrant {
     }
 
     @Override
-    public boolean estActif() {
+    public boolean isActive() {
         Place p = getPlace();
-        return p.getJetons() >= 1;
+        return p.getTokens() >= 1;
     }
 
 
     @Override
-    public void activer() {
+    public void activate() {
         Place p = getPlace();
-        int nbJetons = p.getJetons();
-        p.retirerJetons(nbJetons);
+        int nbJetons = p.getTokens();
+        p.removeTokens(nbJetons);
 
     }
 }

@@ -18,29 +18,37 @@ public class Transition extends Noeud {
     }
 
 
-    public boolean estFranchissable() {
+    public List<ArcEntrant> getIncomingArcs() {
+        return arcsEntrants;
+    }
+
+    public List<ArcSortant> getOutgoingArcs() {
+        return arcsSortants;
+    }
+
+    public boolean isFireable() {
         for (ArcEntrant arc : arcsEntrants) {
-            if (!arc.estActif()) {
+            if (!arc.isActive()) {
                 return false;
             }
         }
         return true;
     }
 
-    public void franchir() {
+    public void fire() {
         for (ArcEntrant arc : arcsEntrants) {
-            arc.activer();
+            arc.activate();
         }
         for (ArcSortant arc : arcsSortants){
-            arc.activer();
+            arc.activate();
         }
     }
 
-    void ajouterArcentrant(ArcEntrant a) {
+    void addIncomingArc(ArcEntrant a) {
         arcsEntrants.add(a);
     }
 
-    void ajouterArcSortant(ArcSortant a) {
+    void addOutgoingArc(ArcSortant a) {
         arcsSortants.add(a);
     }
 }

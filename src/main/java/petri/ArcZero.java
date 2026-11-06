@@ -8,12 +8,12 @@ public class ArcZero extends ArcEntrant {
     }
 
     @Override
-    public boolean estActif() {
+    public boolean isActive() {
         Place p = getPlace();
-        return p.getJetons() == 0 ;
+        return p.getTokens() == 0 ;
         }
 
     @Override
-    public void activer() {
+    public void activate() {
     }
 }

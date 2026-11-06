@@ -24,25 +24,30 @@ public class TestArcZero {
 
     @Test
     void testArcZero() {
-        // TODO
-        fail("Pas encore implémenté");
+        assertEquals(p, a.getPlace());
+        assertEquals(t, a.getTransition());
+        assertEquals(1, a.getWeight());
     }
 
     @Test
-    void testEstActifPlaceVide() {
-        // TODO
-        fail("Pas encore implémenté");
+    void testIsActiveEmptyPlace() {
+        assertTrue(a.isActive());
     }
 
     @Test
-    void testNonActifPlaceNonVide() {
-        // TODO
-        fail("Pas encore implémenté");
+    void testIsNotActiveNonEmptyPlace() {
+        p.addTokens(1);
+        assertFalse(a.isActive());
+        p.addTokens(4);
+        assertFalse(a.isActive());
     }
 
     @Test
-    void testActiver() {
-        // TODO
-        fail("Pas encore implémenté");
+    void testActivate() {
+        a.activate();
+        assertEquals(0, p.getTokens());
+        Place p1 = new Place("P1", 3);
+        new ArcZero(p1, t).activate();
+        assertEquals(3, p1.getTokens());
     }
 }
