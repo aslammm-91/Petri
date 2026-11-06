@@ -24,8 +24,8 @@ public class TestArcVideur {
 
     @Test
     void testArcVideur() {
-        // TODO
-        fail("Pas encore implémenté");
+        assertEquals(p,a.getPlace());
+        assertEquals(t,a.getTransition());
     }
 
     @Test
