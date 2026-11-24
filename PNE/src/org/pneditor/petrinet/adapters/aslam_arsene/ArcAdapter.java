@@ -2,54 +2,56 @@ package org.pneditor.petrinet.adapters.aslam_arsene;
 
 import org.pneditor.petrinet.AbstractArc;
 import org.pneditor.petrinet.AbstractNode;
-import org.pneditor.petrinet.ResetArcMultiplicityException;
+
+import petri.Arc;
 
 /**
- * Adapte un Arc de notre modèle à l'{@link AbstractArc} attendu par PNE.
- * Régulier = ArcEntrant / ArcSortant, inhibiteur = ArcZero, reset = ArcVideur.
+ * Adapte un arc régulier de notre modèle à l'{@link AbstractArc} attendu par PNE.
  */
 public class ArcAdapter extends AbstractArc {
 
-    // TODO : attributs (l'Arc de notre modèle, la source et la destination côté PNE, le type d'arc)
+    private final Arc arc;
+    private final AbstractNode source;
+    private final AbstractNode destination;
+
+    ArcAdapter(Arc arc, AbstractNode source, AbstractNode destination) {
+        this.arc = arc;
+        this.source = source;
+        this.destination = destination;
+    }
 
     @Override
     public AbstractNode getSource() {
-        // TODO
-        return null;
+        return source;
     }
 
     @Override
     public AbstractNode getDestination() {
-        // TODO
-        return null;
+        return destination;
     }
 
     @Override
     public boolean isReset() {
-        // TODO
         return false;
     }
 
     @Override
     public boolean isRegular() {
-        // TODO
-        return false;
+        return true;
     }
 
     @Override
     public boolean isInhibitory() {
-        // TODO
         return false;
     }
 
     @Override
-    public int getMultiplicity() throws ResetArcMultiplicityException {
-        // TODO : un arc reset n'a pas de poids
-        return 0;
+    public int getMultiplicity() {
+        return arc.getWeight();
     }
 
     @Override
-    public void setMultiplicity(int multiplicity) throws ResetArcMultiplicityException {
-        // TODO : un arc reset n'a pas de poids
+    public void setMultiplicity(int multiplicity) {
+        arc.setWeight(multiplicity);
     }
 }

@@ -11,6 +11,10 @@ public class PlaceAdapter extends AbstractPlace {
 
     private final Place place;
 
+    Place getPlace() {
+        return place;
+    }
+
     public PlaceAdapter(Place place) {
         super(place.getName());
         this.place = place;

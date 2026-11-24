@@ -7,6 +7,9 @@ import org.pneditor.petrinet.AbstractTransition;
 import org.pneditor.petrinet.PetriNetInterface;
 import org.pneditor.petrinet.UnimplementedCaseException;
 
+import petri.Arc;
+import petri.ArcEntrant;
+import petri.ArcSortant;
 import petri.Place;
 import petri.ReseauPetri;
 import petri.Transition;
@@ -38,9 +41,30 @@ public class PetriNetAdapter extends PetriNetInterface {
     @Override
     public AbstractArc addRegularArc(AbstractNode source, AbstractNode destination)
             throws UnimplementedCaseException {
-        // TODO : place -> transition = ArcEntrant, transition -> place = ArcSortant,
-        //        sinon UnimplementedCaseException ; ajouter l'arc au réseau, renvoyer un ArcAdapter
-        return null;
+        Arc arc;
+        if (source instanceof PlaceAdapter && destination instanceof TransitionAdapter) {
+            Place place = ((PlaceAdapter) source).getPlace();
+            Transition transition = ((TransitionAdapter) destination).getTransition();
+            arc = new ArcEntrant(place, transition, 1);
+        } else if (source instanceof TransitionAdapter && destination instanceof PlaceAdapter) {
+            Transition transition = ((TransitionAdapter) source).getTransition();
+            Place place = ((PlaceAdapter) destination).getPlace();
+            arc = new ArcSortant(place, transition, 1);
+        } else {
+            throw new UnimplementedCaseException("Un arc régulier doit relier une place et une transition.");
+        }
+
+        if (!reseau.getPlaces().contains(arc.getPlace())
+                || !reseau.getTransitions().contains(arc.getTransition())) {
+            throw new UnimplementedCaseException("Les deux extrémités doivent appartenir à ce réseau.");
+        }
+
+        try {
+            reseau.addArc(arc);
+        } catch (IllegalArgumentException e) {
+            throw new UnimplementedCaseException(e.getMessage());
+        }
+        return new ArcAdapter(arc, source, destination);
     }
 
     @Override
@@ -59,23 +83,22 @@ public class PetriNetAdapter extends PetriNetInterface {
 
     @Override
     public void removePlace(AbstractPlace place) {
-        // TODO
+        reseau.removePlace(place);
     }
 
     @Override
     public void removeTransition(AbstractTransition transition) {
-        // TODO
+        reseau.removeTransition(transition);
     }
 
     @Override
     public void removeArc(AbstractArc arc) {
-        // TODO
+        reseau.removeArc(arc);
     }
 
     @Override
     public boolean isEnabled(AbstractTransition transition) {
-        // TODO : correspond à isFireable()
-        return false;
+        return transition.isFireable();
     }
 
     @Override
