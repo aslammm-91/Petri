@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<document>
+    <left>-108</left>
+    <top>-62</top>
+    <petriNet>
+        <label>PetriNet</label>
+        <place>
+            <id>3</id>
+            <label></label>
+            <x>-3</x>
+            <y>21</y>
+            <tokens>0</tokens>
+        </place>
+        <transition>
+            <id>1</id>
+            <label></label>
+            <x>-92</x>
+            <y>-46</y>
+        </transition>
+        <transition>
+            <id>2</id>
+            <label></label>
+            <x>48</x>
+            <y>-28</y>
+        </transition>
+        <arc>
+            <sourceId>3</sourceId>
+            <destinationId>2</destinationId>
+            <type>regular</type>
+            <multiplicity>1</multiplicity>
+        </arc>
+    </petriNet>
+</document>

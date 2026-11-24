@@ -7,6 +7,10 @@ import org.pneditor.petrinet.AbstractTransition;
 import org.pneditor.petrinet.PetriNetInterface;
 import org.pneditor.petrinet.UnimplementedCaseException;
 
+import petri.Place;
+import petri.ReseauPetri;
+import petri.Transition;
+
 /**
  * Adaptateur (patron Adapter) : PNE manipule une {@link PetriNetInterface},
  * chaque appel doit être traduit vers notre ReseauPetri.
@@ -15,18 +19,20 @@ import org.pneditor.petrinet.UnimplementedCaseException;
  */
 public class PetriNetAdapter extends PetriNetInterface {
 
-    // TODO : attribut ReseauPetri (le réseau de notre modèle)
+    private final ReseauPetri reseau = new ReseauPetri();
 
     @Override
     public AbstractPlace addPlace() {
-        // TODO : créer une Place, l'ajouter au réseau, renvoyer un PlaceAdapter
-        return null;
+        Place place = new Place("P", 0);
+        reseau.addPlace(place);
+        return new PlaceAdapter(place);
     }
 
     @Override
     public AbstractTransition addTransition() {
-        // TODO : créer une Transition, l'ajouter au réseau, renvoyer un TransitionAdapter
-        return null;
+        Transition transition = new Transition("T");
+        reseau.addTransition(transition);
+        return new TransitionAdapter(transition);
     }
 
     @Override

@@ -1,0 +1,1 @@
+mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar   “-Dsonar.projectKey=test”  “-Dsonar.projectName='test'”  “ -Dsonar.host.url=http://localhost:9000”  -“Dsonar.token=sqp_e651bc61eae960b89e132c494ec8d6523400717a”

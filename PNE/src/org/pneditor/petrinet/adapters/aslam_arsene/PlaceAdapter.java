@@ -2,36 +2,38 @@ package org.pneditor.petrinet.adapters.aslam_arsene;
 
 import org.pneditor.petrinet.AbstractPlace;
 
+import petri.Place;
+
 /**
  * Adapte une Place de notre modèle à l'{@link AbstractPlace} attendue par PNE.
  */
 public class PlaceAdapter extends AbstractPlace {
 
-    // TODO : attribut Place (la place de notre modèle)
+    private final Place place;
 
-    public PlaceAdapter(String label) {
-        // TODO : recevoir aussi la Place adaptée
-        super(label);
+    public PlaceAdapter(Place place) {
+        super(place.getName());
+        this.place = place;
     }
 
     @Override
     public void addToken() {
-        // TODO
+        place.addTokens(1);
     }
 
     @Override
     public void removeToken() {
-        // TODO
+        place.removeTokens(1);
     }
 
     @Override
     public int getTokens() {
-        // TODO
-        return 0;
+        return place.getTokens();
     }
 
     @Override
     public void setTokens(int tokens) {
-        // TODO : notre Place n'a pas de setter
+        place.removeTokens(place.getTokens());
+        place.addTokens(tokens);
     }
 }
